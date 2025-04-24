@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Copyright (c) 2021-2025 tteck
+# Copyright (c) 2021-2025 community-scripts
 # Author: MickLesk
 # License: MIT
 # https://github.com/Lutzi1112/ProxmoxVE/raw/main/LICENSE
@@ -37,8 +37,8 @@ function update_container() {
     if pct exec "$container" -- [ -e /usr/bin/update ]; then
       if pct exec "$container" -- grep -q "Lutzi1112/ProxmoxVE" /usr/bin/update; then
         echo -e "${RD}[No Change]${CL} /usr/bin/update is already up to date in ${BL}$container${CL}.\n"
-      elif pct exec "$container" -- grep -q -v "community" /usr/bin/update; then
-        echo -e "${RD}[Warning]${CL} /usr/bin/update in ${BL}$container${CL} contains a different entry (${RD}tteck${CL}). No changes made.\n"
+      elif pct exec "$container" -- grep -q -v "community-scripts" /usr/bin/update; then
+        echo -e "${RD}[Warning]${CL} /usr/bin/update in ${BL}$container${CL} contains a different entry (${RD}community-scripts${CL}). No changes made.\n"
       else
         pct exec "$container" -- bash -c "sed -i 's/community-scripts\\/Proxmox/Lutzi1112\\/ProxmoxVE/g' /usr/bin/update"
 

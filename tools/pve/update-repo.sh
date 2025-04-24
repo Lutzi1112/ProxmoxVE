@@ -35,8 +35,6 @@ function update_container() {
     echo -e "${BL}[Info]${GN} Checking /usr/bin/update in ${BL}$container${CL} (OS: ${GN}$os${CL})"
 
     if pct exec "$container" -- [ -e /usr/bin/update ]; then
-      #if pct exec "$container" -- grep -q "Lutzi1112/ProxmoxVE" /usr/bin/update; then
-        #echo -e "${RD}[No Change]${CL} /usr/bin/update is already up to date in ${BL}$container${CL}.\n"
       if pct exec "$container" -- grep -q -v "Lutzi1112/ProxmoxVEVE" /usr/bin/update; then
         echo -e "${RD}[Warning]${CL} /usr/bin/update in ${BL}$container${CL} contains a different entry (${RD}Lutzi1112/ProxmoxVEVE${CL}). No changes made.\n"
       else

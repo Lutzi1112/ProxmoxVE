@@ -30,8 +30,8 @@ header_info
 echo "Loading..."
 NODE=$(hostname)
 
-old="Lutzi1112/ProxmoxVEVE"
-new="Lutzi1112/ProxmoxVE"
+old=Lutzi1112/ProxmoxVEVE
+new=Lutzi1112/ProxmoxVE
 
 function update_container() {
   container=$1

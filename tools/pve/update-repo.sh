@@ -38,9 +38,9 @@ function update_container() {
     echo -e "${BL}[Info]${GN} Checking /usr/bin/update in ${BL}$container${CL} (OS: ${GN}$os${CL})"
 
     if pct exec "$container" -- [ -e /usr/bin/update ]; then
-      if pct exec "$container" -- grep -q "$old" /usr/bin/update; then
-        echo -e "${RD}[No Change]${CL} /usr/bin/update is already up to date in ${BL}$container${CL}.\n"
-      elif pct exec "$container" -- grep -q -v "$old" /usr/bin/update; then
+      #if pct exec "$container" -- grep -q "$old" /usr/bin/update; then
+      #  echo -e "${RD}[No Change]${CL} /usr/bin/update is already up to date in ${BL}$container${CL}.\n"
+      if pct exec "$container" -- grep -q -v "$old" /usr/bin/update; then
         echo -e "${RD}[Warning]${CL} /usr/bin/update in ${BL}$container${CL} contains a different entry (${RD}$old${CL}). No changes made.\n"
       else
         pct exec "$container" -- bash -c "sed -i 's/$old\\/Proxmox/Lutzi1112\\/$new/g' /usr/bin/update"

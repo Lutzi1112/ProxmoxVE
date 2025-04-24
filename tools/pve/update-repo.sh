@@ -1,9 +1,9 @@
-Lutzi1112/ProxmoxVEVE#!/usr/bin/env bash
+#!/usr/bin/env bash
 
-# Copyright (c) 2021-2025 community-scripts
+# Copyright (c) 2021-2025 Lutzi1112/ProxmoxVEVE
 # Author: MickLesk
 # License: MIT
-# https://github.com/Lutzi1112/ProxmoxVEVE/raw/main/LICENSE
+# https://github.com/Lutzi1112/ProxmoxVE/raw/main/LICENSE
 
 function header_info {
   clear
@@ -35,7 +35,7 @@ function update_container() {
     echo -e "${BL}[Info]${GN} Checking /usr/bin/update in ${BL}$container${CL} (OS: ${GN}$os${CL})"
 
     if pct exec "$container" -- [ -e /usr/bin/update ]; then
-      if pct exec "$container" -- grep -q "Lutzi1112/ProxmoxVE" /usr/bin/update; then
+      if pct exec "$container" -- grep -q "Lutzi1112/ProxmoxVEEEE" /usr/bin/update; then
         echo -e "${RD}[No Change]${CL} /usr/bin/update is already up to date in ${BL}$container${CL}.\n"
       elif pct exec "$container" -- grep -q -v "Lutzi1112/ProxmoxVEVE" /usr/bin/update; then
         echo -e "${RD}[Warning]${CL} /usr/bin/update in ${BL}$container${CL} contains a different entry (${RD}Lutzi1112/ProxmoxVEVE${CL}). No changes made.\n"

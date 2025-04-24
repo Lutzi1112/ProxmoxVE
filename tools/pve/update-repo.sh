@@ -41,7 +41,7 @@ function update_container() {
       if pct exec "$container" -- grep -q -v "Lutzi1112/ProxmoxVEVE" /usr/bin/update; then
         echo -e "${RD}[Warning]${CL} /usr/bin/update in ${BL}$container${CL} contains a different entry (${RD}Lutzi1112/ProxmoxVEVE${CL}). No changes made.\n"
       else
-        pct exec "$container" -- bash -c "sed -i 's/Lutzi1112/ProxmoxVEVE\\/Proxmox/Lutzi1112\\/ProxmoxVE/g' /usr/bin/update"
+        pct exec "$container" -- bash -c "sed -i 's/Lutzi1112\\/ProxmoxVEVE/Lutzi1112\\/ProxmoxVE/g' /usr/bin/update"
 
         if pct exec "$container" -- grep -q "Lutzi1112/ProxmoxVE" /usr/bin/update; then
           echo -e "${GN}[Success]${CL} /usr/bin/update updated in ${BL}$container${CL}.\n"

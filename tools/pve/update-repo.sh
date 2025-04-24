@@ -27,6 +27,9 @@ header_info
 echo "Loading..."
 NODE=$(hostname)
 
+old="Lutzi1112/ProxmoxVEVE"
+new="Lutzi1112/ProxmoxVE"
+
 function update_container() {
   container=$1
   os=$(pct config "$container" | awk '/^ostype/ {print $2}')
@@ -35,14 +38,14 @@ function update_container() {
     echo -e "${BL}[Info]${GN} Checking /usr/bin/update in ${BL}$container${CL} (OS: ${GN}$os${CL})"
 
     if pct exec "$container" -- [ -e /usr/bin/update ]; then
-      if pct exec "$container" -- grep -q "Lutzi1112/ProxmoxVEEEE" /usr/bin/update; then
+      if pct exec "$container" -- grep -q "$old" /usr/bin/update; then
         echo -e "${RD}[No Change]${CL} /usr/bin/update is already up to date in ${BL}$container${CL}.\n"
-      elif pct exec "$container" -- grep -q -v "Lutzi1112/ProxmoxVEVE" /usr/bin/update; then
-        echo -e "${RD}[Warning]${CL} /usr/bin/update in ${BL}$container${CL} contains a different entry (${RD}Lutzi1112/ProxmoxVEVE${CL}). No changes made.\n"
+      elif pct exec "$container" -- grep -q -v "$old" /usr/bin/update; then
+        echo -e "${RD}[Warning]${CL} /usr/bin/update in ${BL}$container${CL} contains a different entry (${RD}$old${CL}). No changes made.\n"
       else
-        pct exec "$container" -- bash -c "sed -i 's/Lutzi1112/ProxmoxVEVE\\/Proxmox/Lutzi1112\\/ProxmoxVE/g' /usr/bin/update"
+        pct exec "$container" -- bash -c "sed -i 's/$old\\/Proxmox/Lutzi1112\\/$new/g' /usr/bin/update"
 
-        if pct exec "$container" -- grep -q "Lutzi1112/ProxmoxVE" /usr/bin/update; then
+        if pct exec "$container" -- grep -q "$new" /usr/bin/update; then
           echo -e "${GN}[Success]${CL} /usr/bin/update updated in ${BL}$container${CL}.\n"
         else
           echo -e "${RD}[Error]${CL} /usr/bin/update in ${BL}$container${CL} could not be updated properly.\n"
@@ -62,4 +65,4 @@ for container in $(pct list | awk '{if(NR>1) print $1}'); do
 done
 
 header_info
-echo -e "${GN}The process is complete. The repositories have been switched to Lutzi1112/ProxmoxVE.${CL}\n"
+echo -e "${GN}The process is complete. The repositories have been switched to $new.${CL}\n"

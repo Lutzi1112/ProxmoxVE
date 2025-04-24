@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+Lutzi1112/ProxmoxVE#!/usr/bin/env bash
 
 # Copyright (c) 2021-2025 community-scripts
 # Author: MickLesk
@@ -35,14 +35,14 @@ function update_container() {
     echo -e "${BL}[Info]${GN} Checking /usr/bin/update in ${BL}$container${CL} (OS: ${GN}$os${CL})"
 
     if pct exec "$container" -- [ -e /usr/bin/update ]; then
-      if pct exec "$container" -- grep -q "Lutzi1112/ProxmoxVE" /usr/bin/update; then
+      if pct exec "$container" -- grep -q "Lutzi1112/Proxmox" /usr/bin/update; then
         echo -e "${RD}[No Change]${CL} /usr/bin/update is already up to date in ${BL}$container${CL}.\n"
-      elif pct exec "$container" -- grep -q -v "community-scripts" /usr/bin/update; then
-        echo -e "${RD}[Warning]${CL} /usr/bin/update in ${BL}$container${CL} contains a different entry (${RD}community-scripts${CL}). No changes made.\n"
+      elif pct exec "$container" -- grep -q -v "Lutzi1112/ProxmoxVE" /usr/bin/update; then
+        echo -e "${RD}[Warning]${CL} /usr/bin/update in ${BL}$container${CL} contains a different entry (${RD}Lutzi1112/ProxmoxVE${CL}). No changes made.\n"
       else
-        pct exec "$container" -- bash -c "sed -i 's/community-scripts\\/Proxmox/Lutzi1112\\/ProxmoxVE/g' /usr/bin/update"
+        pct exec "$container" -- bash -c "sed -i 's/Lutzi1112/ProxmoxVE\\/Proxmox/Lutzi1112\\/Proxmox/g' /usr/bin/update"
 
-        if pct exec "$container" -- grep -q "Lutzi1112/ProxmoxVE" /usr/bin/update; then
+        if pct exec "$container" -- grep -q "Lutzi1112/Proxmox" /usr/bin/update; then
           echo -e "${GN}[Success]${CL} /usr/bin/update updated in ${BL}$container${CL}.\n"
         else
           echo -e "${RD}[Error]${CL} /usr/bin/update in ${BL}$container${CL} could not be updated properly.\n"

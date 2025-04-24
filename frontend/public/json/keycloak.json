@@ -9,7 +9,7 @@
     "updateable": false,
     "privileged": false,
     "interface_port": 8080,
-    "documentation": "https://github.com/community-scripts/ProxmoxVE/discussions/193",
+    "documentation": "https://github.com/Lutzi1112/ProxmoxVE/discussions/193",
     "website": "https://www.keycloak.org/",
     "logo": "https://raw.githubusercontent.com/selfhst/icons/refs/heads/main/svg/keycloak.svg",
     "config_path": "",
@@ -38,8 +38,7 @@
         },
         {
             "text": "This script requires some extra steps after the installation, Please checkout the 'documentation'",
-            "type": "info" 
+            "type": "info"
         }
     ]
 }
-

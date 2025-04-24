@@ -37,7 +37,7 @@ pages:
                   - title: Google
                     url: https://www.google.com/
                   - title: Helper Scripts
-                    url: https://github.com/community-scripts/ProxmoxVE
+                    url: https://github.com/Lutzi1112/ProxmoxVE
 EOF
 
 echo "${RELEASE}" >"/opt/${APPLICATION}_version.txt"

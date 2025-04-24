@@ -67,7 +67,7 @@ Start with the [template script](https://github.com/Lutzi1112/ProxmoxVE/blob/mai
 
 All PR's related to new scripts should be made against our Dev repository first, where we can test the scripts before they are pushed and merged in the official repository.
 
-**Our Dev repo is `http://www.github.com/community-scripts/ProxmoxVED`**
+**Our Dev repo is `http://www.github.com/Lutzi1112/ProxmoxVED`**
 
 You will need to adjust paths mentioned further down this document to match the repo you're pushing the scripts to.
 

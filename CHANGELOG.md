@@ -2931,7 +2931,7 @@
 
 ### Breaking Change
 
-- **Automatic Update of Repository:** The update function now uses the new repository `community-scripts/ProxmoxVE` for Debian/Ubuntu LXC containers.
+- **Automatic Update of Repository:** The update function now uses the new repository `Lutzi1112/ProxmoxVE` for Debian/Ubuntu LXC containers.
 
   ```bash
   bash -c "$(curl -fsSL https://github.com/Lutzi1112/ProxmoxVE/raw/main/misc/update-repo.sh)"
